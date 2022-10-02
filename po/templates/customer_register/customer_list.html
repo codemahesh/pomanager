@@ -1,0 +1,35 @@
+{% extends 'customer_register/base.html' %}
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Customer Name</td>
+            <td>Customer Code</td>
+            <td>Category</td>
+            <td>Address</td>
+            <td>Place</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customer_list %}
+            <tr>
+                <td>{{customer.customer_name}}</td>
+                <td>{{customer.customer_code}}</td>
+                <td>{{customer.category}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.place}}</td>
+                <td><a href="{% url 'customer_list' customer.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg">
+
+                    </i>
+                </a></td>
+            </tr>
+
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock content %}
